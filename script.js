@@ -62,6 +62,9 @@
   const mobileMenu = $("[data-mobile-menu]");
   const main = $("#main");
   const footer = $(".site-footer");
+  const enrollSection = $("#enroll");
+  const finalCtaSection = $("#join");
+  const mobileCta = $("[data-mobile-cta]");
   let menuOpen = false;
 
   function setInert(element, value) {
@@ -85,6 +88,7 @@
     document.body.classList.toggle("menu-open", open);
     setInert(main, open);
     setInert(footer, open);
+    updateMobileCta();
 
     if (open) {
       window.requestAnimationFrame(() => {
@@ -148,6 +152,7 @@
   function updateOnScroll() {
     if (header) header.classList.toggle("is-scrolled", window.scrollY > 8);
     updateActiveNav();
+    updateMobileCta();
     scrollTicking = false;
   }
 
@@ -196,6 +201,50 @@
       }
     });
   }
+
+  /* ---------------------------------------------------------------------
+     Sticky mobile CTA
+     --------------------------------------------------------------------- */
+
+  function inView(section, threshold = 0.92) {
+    if (!section) return false;
+    const rect = section.getBoundingClientRect();
+    return rect.top < window.innerHeight * threshold && rect.bottom > 0;
+  }
+
+  function updateMobileCta() {
+    if (!mobileCta) return;
+
+    const isMobile = window.matchMedia("(max-width: 700px)").matches;
+    const hide =
+      !isMobile ||
+      menuOpen ||
+      window.scrollY < 560 ||
+      inView(enrollSection) ||
+      inView(finalCtaSection) ||
+      inView(footer, 1);
+
+    if (hide) {
+      if (!mobileCta.hidden) {
+        mobileCta.classList.remove("is-visible");
+        mobileCta.hidden = true;
+      }
+      return;
+    }
+
+    if (mobileCta.hidden) {
+      mobileCta.hidden = false;
+    }
+    mobileCta.classList.add("is-visible");
+  }
+
+  window.addEventListener(
+    "resize",
+    () => {
+      window.requestAnimationFrame(updateMobileCta);
+    },
+    { passive: true },
+  );
 
   $$(".desktop-nav a, .mobile-nav a").forEach((link) => {
     link.addEventListener("click", () => {
