@@ -228,7 +228,7 @@
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-glow" aria-hidden="true"></div>
       <div class="hero-grid-lines" aria-hidden="true"></div>
@@ -280,7 +280,7 @@
               <img src="assets/images/testimonials/ruby-neil.webp" width="40" height="40" alt="">
             </div>
             <div class="hero-proof-copy">
-              <span class="stars" aria-label="Five star member feedback">
+              <span class="stars" role="img" aria-label="Five star member feedback">
                 <svg class="icon" aria-hidden="true"><use href="#i-star"/></svg>
                 <svg class="icon" aria-hidden="true"><use href="#i-star"/></svg>
                 <svg class="icon" aria-hidden="true"><use href="#i-star"/></svg>
@@ -345,7 +345,7 @@
             <span class="live-chip"><span></span> Live</span>
           </div>
 
-          <div class="guarantee-seal" aria-label="1,000,000 views or your money back">
+          <div class="guarantee-seal" role="img" aria-label="1,000,000 views or your money back">
             <span class="seal-top">The promise</span>
             <strong>1M</strong>
             <span class="seal-bottom">views or your<br>money back</span>
@@ -389,23 +389,23 @@
             <h3>One call. One format. One post.</h3>
             <p class="rhythm-lede">The calendar does the deciding. You show up, make the work, and get help before it goes live.</p>
 
-            <div class="schedule" aria-label="Example weekly program rhythm">
-              <div class="schedule-row">
+            <div class="schedule" role="list" aria-label="Example weekly program rhythm">
+              <div class="schedule-row" role="listitem">
                 <span class="schedule-day">Wed</span>
                 <div class="schedule-copy"><strong>Format Coaching Call</strong><span>60 minutes + live Q&amp;A</span></div>
                 <span class="schedule-tag schedule-tag--yellow">Live</span>
               </div>
-              <div class="schedule-row">
+              <div class="schedule-row" role="listitem">
                 <span class="schedule-day">Thu</span>
                 <div class="schedule-copy"><strong>Office Hours</strong><span>Optional, rotating times</span></div>
                 <span class="schedule-tag">Live</span>
               </div>
-              <div class="schedule-row">
+              <div class="schedule-row" role="listitem">
                 <span class="schedule-day">Any day</span>
                 <div class="schedule-copy"><strong>Draft review</strong><span>Drop it in the community</span></div>
                 <span class="schedule-tag">Feedback</span>
               </div>
-              <div class="schedule-row">
+              <div class="schedule-row" role="listitem">
                 <span class="schedule-day">Monthly</span>
                 <div class="schedule-copy"><strong>Monetization Workshop</strong><span>90 minutes of revenue strategy</span></div>
                 <span class="schedule-tag">Live</span>
@@ -505,7 +505,7 @@
           </article>
 
           <article class="curriculum-card finder-card reveal">
-            <div class="finder-window">
+            <div class="finder-window" aria-hidden="true">
               <div class="finder-toolbar">
                 <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
                 <span class="finder-brand">Format Finder</span>
@@ -641,8 +641,8 @@
             </div>
           </div>
 
-          <div class="carousel-track" data-carousel-track tabindex="0" aria-label="Scrollable member stories">
-            <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Kathryn, Voice Acting">
+          <div class="carousel-track" data-carousel-track tabindex="0" role="group" aria-label="Scrollable member stories">
+            <article class="testimonial-card" aria-label="Kathryn, Voice Acting">
               <div class="testimonial-top">
                 <span class="testimonial-tag">Voice Acting</span>
                 <span class="testimonial-result">3M <small>views</small></span>
@@ -655,7 +655,7 @@
               </div>
             </article>
 
-            <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Jillaine, Tattoo Artist">
+            <article class="testimonial-card" aria-label="Jillaine, Tattoo Artist">
               <div class="testimonial-top">
                 <span class="testimonial-tag">Tattoo Artistry</span>
                 <span class="testimonial-result">2M <small>views</small></span>
@@ -668,7 +668,7 @@
               </div>
             </article>
 
-            <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Mary Beth, Cooking">
+            <article class="testimonial-card" aria-label="Mary Beth, Cooking">
               <div class="testimonial-top">
                 <span class="testimonial-tag">Cooking</span>
                 <span class="testimonial-result">42K+ <small>followers</small></span>
@@ -681,7 +681,7 @@
               </div>
             </article>
 
-            <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Becca, Personal Finance">
+            <article class="testimonial-card" aria-label="Becca, Personal Finance">
               <div class="testimonial-top">
                 <span class="testimonial-tag">Personal Finance</span>
                 <span class="testimonial-result">13M <small>views</small></span>
@@ -694,7 +694,7 @@
               </div>
             </article>
 
-            <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Chanelle, Art and Painting">
+            <article class="testimonial-card" aria-label="Chanelle, Art and Painting">
               <div class="testimonial-top">
                 <span class="testimonial-tag">Art &amp; Painting</span>
                 <span class="testimonial-result">$6K <small>commission</small></span>
@@ -707,7 +707,7 @@
               </div>
             </article>
 
-            <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Ruby and Neil, Mom Health">
+            <article class="testimonial-card" aria-label="Ruby and Neil, Mom Health">
               <div class="testimonial-top">
                 <span class="testimonial-tag">Mom Health</span>
                 <span class="testimonial-result">1.2M <small>views</small></span>
@@ -1051,7 +1051,7 @@
           <span class="brand-name">One Peak <span>Creative</span></span>
         </a>
         <p>Helping creators make content that spreads.</p>
-        <div class="footer-socials" aria-label="One Peak Creative social profiles">
+        <div class="footer-socials" role="group" aria-label="One Peak Creative social profiles">
           <a href="https://www.instagram.com/onepeakcreative" target="_blank" rel="noopener noreferrer" aria-label="One Peak Creative on Instagram" data-track="instagram_click"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg></a>
           <a href="https://www.tiktok.com/@onepeakcreative" target="_blank" rel="noopener noreferrer" aria-label="One Peak Creative on TikTok" data-track="tiktok_click"><svg class="icon" aria-hidden="true"><use href="#i-tiktok"/></svg></a>
           <a href="https://www.youtube.com/@onepeakcreative" target="_blank" rel="noopener noreferrer" aria-label="One Peak Creative on YouTube" data-track="youtube_click"><svg class="icon" aria-hidden="true"><use href="#i-youtube"/></svg></a>

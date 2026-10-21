@@ -104,7 +104,18 @@
     menuToggle.addEventListener("click", () => setMenuState(!menuOpen));
 
     $$("a", mobileMenu).forEach((link) => {
-      link.addEventListener("click", () => setMenuState(false, false));
+      link.addEventListener("click", () => {
+        const href = link.getAttribute("href");
+        setMenuState(false, false);
+
+        if (!href || !href.startsWith("#")) return;
+        const target = document.querySelector(href);
+        const focusTarget = target && (target.querySelector("h1, h2, h3") || target);
+        if (!focusTarget) return;
+
+        focusTarget.setAttribute("tabindex", "-1");
+        window.requestAnimationFrame(() => focusTarget.focus({ preventScroll: true }));
+      });
     });
 
     document.addEventListener("keydown", (event) => {
@@ -411,6 +422,32 @@
     };
 
     const getLastIndex = () => Math.max(0, cards.length - getVisibleCount());
+    let renderedDots = 0;
+
+    function syncDots() {
+      if (!dotsContainer) return;
+      const pageCount = getLastIndex() + 1;
+      if (pageCount === renderedDots) return;
+      renderedDots = pageCount;
+      dotsContainer.replaceChildren();
+      const visible = getVisibleCount();
+
+      for (let index = 0; index < pageCount; index += 1) {
+        const button = document.createElement("button");
+        const lastVisible = Math.min(index + visible, cards.length);
+        button.type = "button";
+        button.className = "carousel-dot";
+        button.dataset.index = String(index);
+        button.setAttribute(
+          "aria-label",
+          visible === 1
+            ? `Go to story ${index + 1} of ${cards.length}`
+            : `Go to stories ${index + 1}–${lastVisible} of ${cards.length}`,
+        );
+        button.addEventListener("click", () => goTo(index));
+        dotsContainer.append(button);
+      }
+    }
 
     function updateCarousel() {
       if (!trackElement || !cards.length) return;
@@ -419,6 +456,8 @@
       currentIndex = Math.max(0, Math.min(rawIndex, getLastIndex()));
       const visible = getVisibleCount();
       const lastVisible = Math.min(currentIndex + visible, cards.length);
+
+      syncDots();
 
       if (status) {
         status.textContent = `Showing stories ${currentIndex + 1}–${lastVisible} of ${cards.length}`;
@@ -445,20 +484,6 @@
       trackElement.scrollTo({
         left: getStep() * target,
         behavior: reducedMotion ? "auto" : "smooth",
-      });
-    }
-
-    if (dotsContainer) {
-      cards.forEach((card, index) => {
-        const button = document.createElement("button");
-        button.type = "button";
-        button.className = "carousel-dot";
-        button.setAttribute(
-          "aria-label",
-          `Go to story ${index + 1} of ${cards.length}: ${card.getAttribute("aria-label") || "Member story"}`,
-        );
-        button.addEventListener("click", () => goTo(index));
-        dotsContainer.appendChild(button);
       });
     }
 
