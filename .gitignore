@@ -4,7 +4,15 @@ tests/artifacts/
 *.log
 .DS_Store
 
+# Cloudflare / Node build output (must never be committed or uploaded)
+node_modules/
+.wrangler/
+
 # Local environment overrides
+.dev.vars
+.dev.vars.*
 .env
 .env.local
+.env.*
+!.env.example
 .vercel

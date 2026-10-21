@@ -1,0 +1,33 @@
+# Keep deployment tooling, source-control metadata, and local development
+# files out of the Workers static-assets upload. Without this, Cloudflare's
+# build installs Wrangler (including node_modules/workerd, ~134 MiB) into the
+# repo and tries to upload it as a public asset, which exceeds the 25 MiB
+# per-file limit.
+
+.git/
+.github/
+.assetsignore
+.gitignore
+node_modules/
+.wrangler/
+package.json
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+wrangler.toml
+wrangler.json
+wrangler.jsonc
+.dev.vars
+.dev.vars.*
+.env
+.env.*
+*.log
+.DS_Store
+Thumbs.db
+README.md
+data/
+.vercel/
+tests/
+tools/
+*.py
+__pycache__/

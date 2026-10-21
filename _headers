@@ -1,0 +1,16 @@
+# Security and caching headers, ported from the retired local Python server.
+# Workers static assets parses this file and does not serve it publicly.
+# HTML uses the Workers default Cache-Control (public, max-age=0,
+# must-revalidate); only hashed/immutable-style assets get a longer TTL.
+# Do not add Cache-Control to /* here, because Cloudflare joins duplicate
+# values from every matching rule (e.g. "no-cache, public, max-age=604800").
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests
+
+/assets/*
+  Cache-Control: public, max-age=604800
