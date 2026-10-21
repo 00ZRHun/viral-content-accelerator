@@ -305,9 +305,13 @@
     observer.observe(section);
   }
 
+  trackSectionView("#program", "program_view");
   trackSectionView("#curriculum", "curriculum_view");
   trackSectionView("#results", "results_view");
+  trackSectionView("#process", "process_view");
+  trackSectionView("#fit", "fit_view");
   trackSectionView("#enroll", "pricing_view");
+  trackSectionView("#join", "final_cta_view");
 
   /* ---------------------------------------------------------------------
      Pricing toggle
