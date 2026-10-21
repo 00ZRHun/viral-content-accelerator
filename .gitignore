@@ -1,0 +1,10 @@
+# Local artifacts
+data/
+tests/artifacts/
+*.log
+.DS_Store
+
+# Local environment overrides
+.env
+.env.local
+.vercel

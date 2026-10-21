@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# No production hostname has been assigned to this build yet.
+# Add a Sitemap directive with the canonical production URL before launch.

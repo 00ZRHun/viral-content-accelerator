@@ -1,0 +1,23 @@
+{
+  "name": "Viral Content Accelerator — One Peak Creative",
+  "short_name": "VCA",
+  "description": "A four-month coaching program for creators who want a repeatable short-form video system.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#08060f",
+  "theme_color": "#08060f",
+  "icons": [
+    {
+      "src": "assets/brand/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/brand/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
