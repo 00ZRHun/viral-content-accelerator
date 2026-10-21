@@ -1,6 +1,7 @@
-# Local artifacts
+# Local artifacts and agent tooling
 data/
 tests/artifacts/
+.opencode/
 *.log
 .DS_Store
 

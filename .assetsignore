@@ -6,6 +6,7 @@
 
 .git/
 .github/
+.opencode/
 .assetsignore
 .gitignore
 node_modules/
