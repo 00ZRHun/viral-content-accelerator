@@ -3421,29 +3421,41 @@ ol {
    Animation
    ========================================================================== */
 
+/*
+ * Content is visible by default so the page works without JavaScript and
+ * reads correctly in full-page captures. When JS is available, sections get
+ * a short entrance animation as they scroll into view.
+ */
 .js.has-reveal .reveal {
-  opacity: 0;
-  transform: translateY(16px);
-  transition:
-    opacity 0.75s var(--ease),
-    transform 0.75s var(--ease);
-}
-
-.js.has-reveal .reveal.is-visible {
   opacity: 1;
   transform: none;
 }
 
-.js.has-reveal .reveal:nth-child(2) {
-  transition-delay: 0.06s;
+.js.has-reveal .reveal.is-visible {
+  animation: reveal-in 0.72s var(--ease) both;
 }
 
-.js.has-reveal .reveal:nth-child(3) {
-  transition-delay: 0.12s;
+.js.has-reveal .reveal.is-visible:nth-child(2) {
+  animation-delay: 0.06s;
 }
 
-.js.has-reveal .reveal:nth-child(4) {
-  transition-delay: 0.18s;
+.js.has-reveal .reveal.is-visible:nth-child(3) {
+  animation-delay: 0.1s;
+}
+
+.js.has-reveal .reveal.is-visible:nth-child(4) {
+  animation-delay: 0.14s;
+}
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .no-js .reveal {
